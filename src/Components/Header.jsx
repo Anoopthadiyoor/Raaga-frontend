@@ -14,13 +14,14 @@ function Header() {
     >
       <Container>
 
-        <nav
-          className="text-white fw-bold"
+        <Link
+          to="/home"
+          className="text-white text-decoration-none fw-bold"
           aria-label="Raaga home"
           style={{ fontSize: '2.65rem', lineHeight: 1, letterSpacing: '0.02em' }}
         >
           Raaga<span className="text-danger ms-1" style={{ fontSize: '1.12em' }} aria-hidden="true">♪</span>
-        </nav>
+        </Link>
         <div className="d-flex align-items-center gap-3">
           <Button variant="link"className="text-white p-2 border-0 "><Link to={'/search'} className="text-white"><FiSearch size={24} /></Link></Button>
           <Button variant="link" className="text-white p-2 border-0"><Link to={'/account'}  className="text-white"><FiUser size={24} /></Link></Button>

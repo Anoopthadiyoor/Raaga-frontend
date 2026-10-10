@@ -12,8 +12,6 @@ import Playlist from './Pages/Playlist'
 import Register from './Pages/Register'
 import Search from './Pages/Search';
 import MusicPlayer from './Components/MusicPlayer';
-import BottomNavigation from './Components/BottomNavigation';
-import Header from './Components/Header';
 import AdminDashboard from './Pages/AdminDashboard'
 import AdminLogin from './Pages/Adminlogin';
 import AddSong from './Pages/AddSong';
