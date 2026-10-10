@@ -40,7 +40,9 @@ function SongDetails() {
             } catch (error) {
                 console.log(error);
                 setSong(null);
-            } 
+            } finally {
+                setLoading(false);
+            }
         };
         fetchSongs();
     }, [id]);
