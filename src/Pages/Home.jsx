@@ -22,7 +22,7 @@ function Home() {
          <Container className="py-4" style={{ paddingBottom: '220px' }}>
                 <SongSelection title="Quick Picks" songs={songs.slice(0,5)} />
                 <SongSelection title="Beat Street" songs={songs.slice(6,9)} />
-                <SongSelection title="More to Explore" songs={songs.slice(12,14)} />
+                <SongSelection title="More to Explore" songs={songs.slice(10,13)} />
             </Container>
         </main>
         <BottomNavigation />
