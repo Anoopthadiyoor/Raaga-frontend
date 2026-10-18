@@ -9,16 +9,16 @@ function Register() {
     const [password, setPassword] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
     const navigate = useNavigate();
+
     const handleRegister = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-
     try {
 
         const userResponse = await apiServices('POST', '/users', { name, email, password });
         const newUser = userResponse.data;
     
-        await apiServices('POST', '/playlists', {  userId: newUser.id, name: 'Liked Songs', songIds: []   });
+        await apiServices('POST', '/playlists', {  userId: newUser.id, name: 'Liked Songs', songIds: []  });
 
         navigate('/login');
 
@@ -55,9 +55,7 @@ function Register() {
                                 <Form.Label>Password</Form.Label>
                                 <Form.Control type="password"  placeholder="Create a password" value={password}  onChange={(e) => setPassword(e.target.value)}  required />
                             </Form.Group>
-                            <Button  variant="danger"  type="submit"   className="w-100"
-                                disabled={isSubmitting} >
-                                {isSubmitting ? 'Creating account...' : 'Sign Up'}
+                            <Button  variant="danger"  type="submit"   className="w-100" disabled={isSubmitting} >  {isSubmitting ? 'Creating account...' : 'Sign Up'}
                             </Button>
                         </Form>
                         <div className="text-center mt-4">

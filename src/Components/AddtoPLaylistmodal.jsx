@@ -19,72 +19,37 @@ function AddToPlaylistModal({ show, onHide, songId }) {
             setPlaylists([]);
             return;
         }
-
-        apiServices('GET', `/playlists?userId=${user.id}`)
-            .then((response) => {
-
-                const normalPlaylists = response.data.filter(
-                    (playlist) => playlist.name !== 'Liked Songs'
-                );
-
+        apiServices('GET', `/playlists?userId=${user.id}`)  .then((response) => {
+                const normalPlaylists = response.data.filter(   (playlist) => playlist.name !== 'Liked Songs' );
                 setPlaylists(normalPlaylists);
-
             })
             .catch((error) => {
                 console.log(error);
             });
 
     }, [show]);
-
-
     const handleAdd = async () => {
-
         if (!selectedPlaylist) {
             return;
         }
-
         try {
 
-            const response = await apiServices(
-                'GET',
-                `/playlists/${selectedPlaylist}`
-            );
-
+            const response = await apiServices( 'GET', `/playlists/${selectedPlaylist}`);
             const playlist = response.data;
-
             if (playlist.songIds.includes(Number(songId))) {
-
                 alert('Song is already in this playlist');
                 return;
-
             }
-
-            const updatedSongIds = [
-                ...playlist.songIds,
-                Number(songId)
-            ];
-
-            await apiServices(
-                'PATCH',
-                `/playlists/${selectedPlaylist}`,
-                {
-                    songIds: updatedSongIds
-                }
+            const updatedSongIds = [  ...playlist.songIds, Number(songId) ];
+            await apiServices( 'PATCH', `/playlists/${selectedPlaylist}`,{ songIds: updatedSongIds}
             );
-
             alert('Song added to playlist');
-
             setSelectedPlaylist('');
             onHide();
-
         } catch (error) {
-
             console.log(error);
-
         }
     };
-
-
     return (
         <Modal
             show={show}
@@ -119,7 +84,7 @@ function AddToPlaylistModal({ show, onHide, songId }) {
                         {playlists.map((playlist) => (
 
                             <option
-                                key={playlist.id}
+                              key={playlist.id}
                                 value={playlist.id}
                             >
                                 {playlist.name}
@@ -135,20 +100,8 @@ function AddToPlaylistModal({ show, onHide, songId }) {
 
 
             <Modal.Footer>
-
-                <Button
-                    variant="secondary"
-                    onClick={onHide}
-                >
-                    Cancel
-                </Button>
-
-                <Button
-                    variant="danger"
-                    onClick={handleAdd}
-                    disabled={!selectedPlaylist}
-                >
-                    Add
+                <Button  variant="secondary"  onClick={onHide}   >  Cancel  </Button>
+                <Button  variant="danger"  onClick={handleAdd}  disabled={!selectedPlaylist} >  Add
                 </Button>
 
             </Modal.Footer>

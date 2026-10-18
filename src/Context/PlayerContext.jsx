@@ -1,5 +1,6 @@
 import React, { createContext, useRef,useState} from 'react';
 export const PlayerContext = createContext();
+
 function PlayerProvider({ children }) {
     const [currentSong, setCurrentSong] = useState(null);
     const [isPlaying, setIsPlaying] = useState(false);
