@@ -180,13 +180,13 @@ function Library() {
                                     {/* PLAYLIST LABEL */}
 
                                     <p className="text-danger fw-bold text-uppercase small mb-2">
-                                        Playlist
+                                        {/* Playlist */}
                                     </p>
 
                                     {/* PLAYLIST NAME */}
 
                                     <Card.Title
-                                        className="fw-bold mb-2 text-break"
+                                        className="fw-bold mb-2 text-danger     text-break"
                                     >
                                         {playlist.name}
                                     </Card.Title>

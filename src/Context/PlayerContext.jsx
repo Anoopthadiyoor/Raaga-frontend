@@ -56,8 +56,7 @@ function PlayerProvider({ children }) {
         ) {
             setPlayHistory(previous => {
                 if (
-                    previous.length > 0 &&
-                    Number(
+                    previous.length > 0 && Number(
                         previous[previous.length - 1].id
                     ) === Number(currentSong.id)
                 ) {

@@ -70,7 +70,7 @@ const handleLogout = () => {
             >
 
                 <div className="text-center mb-4">
-                    <p className="text-danger fw-bold text-uppercase mb-1">Profile</p>
+                    <p className="text-danger fw-bold text-uppercase mb-1"></p>
                     <h1 className="h2 fw-bold mb-0">Account Details</h1>
                 </div>
 
